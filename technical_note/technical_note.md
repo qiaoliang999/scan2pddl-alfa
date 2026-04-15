@@ -11,7 +11,8 @@ that incomplete or ambiguous network descriptions can hinder exploit-chain
 discovery and suggest future integration with network scanning tools to assist
 in producing problem files.
 
-This repository addresses that specific gap.
+This repository explores one adjacent automation step in that future-work
+direction.
 
 ## Contribution
 
@@ -23,9 +24,10 @@ ALFA-Chains-style PDDL problem files. The tool currently supports:
 - an optional `overlay JSON` file for analyst-supplied topology semantics such
   as `dmz`, `lan`, attacker entry network, and multi-homed hosts
 
-The generated output aligns with the public PDDL representation shown in the
-paper, including predicates such as `connected_to_network`, `has_product`,
-`has_version`, `TCP_listen`, `UDP_listen`, and `is_compromised`.
+The generated output is intended to align with the public PDDL representation
+shown in the paper, including predicates such as `connected_to_network`,
+`has_product`, `has_version`, `TCP_listen`, `UDP_listen`, and
+`is_compromised`.
 
 ## Design
 
@@ -49,7 +51,8 @@ that are not reliably inferable from scan output alone.
 
 The repository includes a motivating-example scan and overlay pair that
 reconstruct the paper's DMZ-LAN example at the problem-file level. The emitted
-PDDL contains the expected structure for:
+PDDL is checked for paper-level structural alignment and contains the expected
+public-facing elements for:
 
 - an external attacker connected to the `dmz`
 - a `web_server` attached to both `dmz` and `lan`
@@ -57,7 +60,9 @@ PDDL contains the expected structure for:
 - vulnerable software stacks such as Drupal 8.6.9 and Apache CouchDB 2.0.0
 - a goal state targeting `ROOT_PRIVILEGES` on the database host
 
-Automated tests cover both `Nmap XML` and normalized `JSON` inputs.
+Automated tests cover both `Nmap XML` and normalized `JSON` inputs. This is
+evidence of structural consistency, not evidence of verified compatibility with
+the authors' internal ALFA-Chains implementation.
 
 ## Limitations
 

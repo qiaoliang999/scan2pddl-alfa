@@ -96,8 +96,8 @@ def build_pdf() -> Path:
             Paragraph(
                 "The paper also points to a natural next step: integrate network "
                 "scanning tools to extract host and service information and assist in "
-                "producing the problem files. Scan2PDDL-ALFA targets exactly that "
-                "boundary.",
+                "producing the problem files. Scan2PDDL-ALFA explores one adjacent "
+                "automation step in that direction.",
                 body,
             ),
             Paragraph("Contribution", heading),
@@ -193,7 +193,9 @@ def build_pdf() -> Path:
             ),
             Paragraph(
                 "Automated tests cover both Nmap XML and normalized JSON flows to "
-                "ensure the generated predicate structure is stable.",
+                "ensure the generated predicate structure is stable. This is evidence "
+                "of paper-level structural alignment, not verified compatibility with "
+                "the authors' internal ALFA-Chains implementation.",
                 body,
             ),
             PageBreak(),

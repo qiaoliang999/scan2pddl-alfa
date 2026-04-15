@@ -26,3 +26,23 @@ expects.
 The prototype does not claim full ALFA-Chains compatibility because the public
 paper describes the PDDL representation but does not provide the complete
 implementation used in the experiments.
+
+## Concrete Alignment To The Public PDDL Representation
+
+The repository includes a generated motivating-example problem file at
+[`examples/alfa_motivating_problem.pddl`](../examples/alfa_motivating_problem.pddl).
+The following elements are intentionally aligned to the public paper:
+
+| Public Paper Element | Generated Example |
+| --- | --- |
+| Listing 1 initial foothold | `(is_compromised attacker_host agent ROOT_PRIVILEGES)` |
+| Listing 1 topology predicate | `(connected_to_network web_server dmz)` |
+| Listing 1 product predicate | `(has_product web_server a--drupal--drupal)` |
+| Listing 1 version tokenization | `(has_version web_server a--drupal--drupal ma8 mi6 pa9)` |
+| Listing 1 exposed service predicate | `(TCP_listen db_server a--apache--couchdb)` |
+| Listing 1 goal clause | `(:goal (is_compromised db_server agent ROOT_PRIVILEGES))` |
+| Table III object categories | generated `Host`, `Agent`, `Network`, `Privilege`, `Product`, `Major`, `Minor`, `Patch` objects |
+| Table IV configuration predicates | generated `has_product`, `has_version`, `TCP_listen`, and `UDP_listen` predicates |
+
+This is a claim about alignment to the public representation in the paper, not
+about verified drop-in compatibility with the original research codebase.

@@ -9,7 +9,9 @@ Chains*. In Section VII, the paper notes that exploit-chain discovery depends
 heavily on complete and correct network modeling, and explicitly suggests
 future integration with network scanning tools to reduce manual modeling effort.
 
-This repository implements that missing adjacent step.
+This repository explores one adjacent automation step in that direction:
+generating ALFA-Chains-style PDDL problem files from scan-derived host and
+service data.
 
 ## What It Does
 
@@ -39,9 +41,9 @@ once a network is modeled in PDDL. However, the paper also states that this
 network modeling is still a manual step and that errors in host descriptions
 and interconnections can degrade exploit-chain discovery.
 
-`Scan2PDDL-ALFA` is an engineering prototype for reducing that manual modeling
-burden by translating scan-time host and service data into planner-ready PDDL
-problem files.
+`Scan2PDDL-ALFA` is an early engineering prototype for reducing part of that
+manual modeling burden by translating scan-time host and service data into
+planner-facing PDDL problem files.
 
 ## Pipeline
 
@@ -66,16 +68,16 @@ python -m pip install -e .
 Generate the motivating example problem file:
 
 ```bash
-scan2pddl-alfa examples/alfa_motivating_scan.xml ^
-  --overlay examples/alfa_motivating_overlay.json ^
+scan2pddl-alfa examples/alfa_motivating_scan.xml \
+  --overlay examples/alfa_motivating_overlay.json \
   --output output/pddl/problem.pddl
 ```
 
 Or run the module directly:
 
 ```bash
-python -m scan2pddl_alfa.cli examples/alfa_motivating_scan.xml ^
-  --overlay examples/alfa_motivating_overlay.json ^
+python -m scan2pddl_alfa.cli examples/alfa_motivating_scan.xml \
+  --overlay examples/alfa_motivating_overlay.json \
   --output output/pddl/problem.pddl
 ```
 
@@ -87,8 +89,7 @@ examples/                motivating-example scan and overlay files
 tests/                   parser and rendering checks
 docs/paper_alignment.md  paper-to-implementation mapping
 docs/limitations.md      explicit scope and caveats
-technical_note/          1-2 page project note
-output/pdf/              generated technical-note PDF
+technical_note/          1-2 page project note and generated PDF
 ```
 
 ## Example Output
@@ -110,11 +111,13 @@ The motivating example produces a problem file with the following core shape:
 
 ## Validation
 
-- the predicate names and overall structure are aligned to the paper's PDDL
-  presentation in Listing 1 and Table IV
+- the generated problem file is checked for paper-level structural alignment
+  with the public PDDL representation shown in Listing 1 and Tables III-IV
 - the motivating example can be reconstructed using a scan file plus a small
   overlay for topology details Nmap cannot infer directly
 - test coverage checks both `Nmap XML` and normalized `JSON` input flows
+- this repository does not claim verified compatibility with the authors'
+  internal ALFA-Chains implementation
 
 ## Documentation
 
