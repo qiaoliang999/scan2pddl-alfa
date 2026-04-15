@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nmaprun scanner="nmap" args="nmap -sV -O 10.10.10.10 10.10.20.10" start="0">
+  <host>
+    <status state="up" reason="syn-ack" />
+    <address addr="10.10.10.10" addrtype="ipv4" />
+    <hostnames>
+      <hostname name="web-server" type="PTR" />
+    </hostnames>
+    <ports>
+      <port protocol="tcp" portid="80">
+        <state state="open" reason="syn-ack" />
+        <service name="http" product="Drupal" version="8.6.9">
+          <cpe>cpe:/a:drupal:drupal:8.6.9</cpe>
+        </service>
+      </port>
+      <port protocol="tcp" portid="9000">
+        <state state="open" reason="syn-ack" />
+        <service name="php-fpm" product="PHP" version="7.0.33">
+          <cpe>cpe:/a:php:php:7.0.33</cpe>
+        </service>
+      </port>
+    </ports>
+    <os>
+      <osmatch name="Ubuntu Linux 16.04" accuracy="98">
+        <osclass vendor="Canonical" osfamily="ubuntu_linux" osgen="16.04">
+          <cpe>cpe:/o:canonical:ubuntu_linux:16.04</cpe>
+        </osclass>
+      </osmatch>
+    </os>
+  </host>
+  <host>
+    <status state="up" reason="syn-ack" />
+    <address addr="10.10.20.10" addrtype="ipv4" />
+    <hostnames>
+      <hostname name="db-server" type="PTR" />
+    </hostnames>
+    <ports>
+      <port protocol="tcp" portid="5984">
+        <state state="open" reason="syn-ack" />
+        <service name="http" product="Apache CouchDB" version="2.0.0">
+          <cpe>cpe:/a:apache:couchdb:2.0.0</cpe>
+        </service>
+      </port>
+    </ports>
+    <os>
+      <osmatch name="Linux 4.8" accuracy="95">
+        <osclass vendor="Linux" osfamily="linux_kernel" osgen="4.8">
+          <cpe>cpe:/o:linux:linux_kernel:4.8.0</cpe>
+        </osclass>
+      </osmatch>
+    </os>
+  </host>
+</nmaprun>

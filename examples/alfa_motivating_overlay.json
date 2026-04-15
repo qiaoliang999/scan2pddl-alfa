@@ -1,0 +1,16 @@
+{
+  "goal_host": "db_server",
+  "attacker_networks": [
+    "dmz"
+  ],
+  "host_networks": {
+    "web_server": [
+      "dmz",
+      "lan"
+    ],
+    "db_server": [
+      "lan"
+    ]
+  },
+  "problem_name": "dmz_lan_motivating_example"
+}
