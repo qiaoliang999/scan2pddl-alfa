@@ -57,6 +57,19 @@ Nmap XML / JSON Inventory
 ALFA-Chains-style PDDL Problem File
 ```
 
+## Demo
+
+The repository includes committed demo assets so reviewers can inspect the
+prototype without running the code locally.
+
+![Scan2PDDL-ALFA demo](docs/media/scan2pddl_alfa_demo.gif)
+
+- [Demo Walkthrough](docs/demo.md)
+- [Short Demo Video (MP4)](docs/media/scan2pddl_alfa_demo.mp4)
+- [Overview Slide](docs/media/01_overview.png)
+- [CLI Slide](docs/media/02_cli_demo.png)
+- [PDDL Alignment Slide](docs/media/03_pddl_alignment.png)
+
 ## Quickstart
 
 Install the package in editable mode:
@@ -87,8 +100,10 @@ python -m scan2pddl_alfa.cli examples/alfa_motivating_scan.xml \
 src/scan2pddl_alfa/      CLI and conversion logic
 examples/                motivating-example scan and overlay files
 tests/                   parser and rendering checks
+scripts/                 demo media generation script
 docs/paper_alignment.md  paper-to-implementation mapping
 docs/limitations.md      explicit scope and caveats
+docs/media/              committed public demo assets
 technical_note/          1-2 page project note and generated PDF
 ```
 
@@ -124,6 +139,7 @@ The motivating example produces a problem file with the following core shape:
 - [Paper Alignment](docs/paper_alignment.md)
 - [Limitations](docs/limitations.md)
 - [Roadmap](docs/roadmap.md)
+- [Demo Walkthrough](docs/demo.md)
 - [Technical Note (Markdown)](technical_note/technical_note.md)
 - [Technical Note (PDF)](technical_note/scan2pddl_alfa_technical_note.pdf)
 - [Motivating Example Output](examples/alfa_motivating_problem.pddl)
